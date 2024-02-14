@@ -1,0 +1,17 @@
+{% extends 'main/main_after_auth.html' %}
+
+{% block content %}
+    Pizza With Discont Price
+    {% for pizza in catalog %}
+    <li> 
+        <p> <a href="/pizza/lisa/{{ pizza.id }}/"> *** {{ pizza.name_pizza }},</a> </p>
+        <p> Sale from {{ pizza.price }} BYN to {{ pizza.price_disсont }} BYN </p> 
+            <form action="/pizza/lisa/basket/{{ pizza.id }}/" method="post">
+                <button type="submit">Add to Basket</button>
+            </form>
+            <br>
+        </li>
+    </li>
+    {% endfor %} 
+    
+{% endblock %}

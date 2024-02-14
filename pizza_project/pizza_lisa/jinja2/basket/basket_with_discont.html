@@ -1,0 +1,26 @@
+{% extends 'main/main_after_auth.html' %}
+
+{% block content %}
+<p> Please, check your Order </p>
+<br>
+{% for m in keys %}
+<li> <p> {{basket_with_price[m].pizza}} - {{basket_with_price[m].count}} pieces Price: By one {{basket_with_price[m].price_one}} BYN -- Total: {{basket_with_price[m].price}} BYN
+    <a href="/pizza/lisa/basket/add/{{ basket_with_price[m].id }}/"> Add </a><a href="/pizza/lisa/basket/delete/{{ basket_with_price[m].id }}/"> Delete </a> </p> 
+</li>
+{% endfor %} 
+<br>
+<p>Cost without Discont: {{price_without_discont}} BYN</p>
+<p>Discont: - {{discont}} BYN</p>
+<p>Total Cost: {{all_price}} BYN</p>
+
+<br>
+    <form action="/pizza/lisa/order/" method="post">
+        {{ form }}
+        <br>
+        <button type="submit">Order</button>
+    </form> 
+</p>
+
+
+
+{% endblock %}

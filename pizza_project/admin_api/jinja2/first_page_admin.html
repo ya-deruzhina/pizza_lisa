@@ -1,0 +1,27 @@
+{% extends 'main_admin.html' %}
+
+{% block content %}
+    <p> Hello, Dear Admin </p>
+    <p> <a href="/main/catalog/"> Catalog for Admin </a><br> 
+    <p> <a href="/main/user/all/"> All Users </a><br> 
+    Total sales {{price}} BYN </p>
+    <br>
+        
+    <p> New Orders </p>
+    {% for s in new_orders %}
+        <li> 
+            <p> <a href="/main/user/orders/{{ s.id }}/"> *** {{ s.user.username }},</a> New Order {{s.id}}  </p>
+        </li>
+    {% endfor %} 
+    <br>
+
+    <p> New Messages </p>
+    {% for a in new_message %}
+        <li> 
+            <p> <a href="/main/user/message/{{ a.user_page.id }}/"> *** {{ a.user_page.username }},</a> New Messages {{a.message}} </p>
+        </li>
+    {% endfor %}
+    <br> 
+
+
+{% endblock %}

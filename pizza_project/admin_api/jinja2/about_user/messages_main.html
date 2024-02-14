@@ -1,0 +1,17 @@
+{% extends 'main_admin.html' %}
+
+{% block content %}
+    {% for m in messages %}
+    <li> {{m.author_message}} --- 
+        {{m.message}}  // New = {{m.new}}  // <a href="/main/user/message/read/{{user_id}}/{{ m.id }}/"> Read by Admin </a> ******
+        <a href="/main/user/message/delete/{{user_id}}/{{ m.id }}/"> Delete </a>   
+    </li>
+    {% endfor %} 
+    
+    <form action="/main/user/message/{{user_id}}/" method="post">
+        {{ form }}
+        <button type="submit">Sent</button>
+    </form> 
+
+<p> <a href="/main/user/{{user_id}}/"> Back </a><br> 
+{% endblock %}

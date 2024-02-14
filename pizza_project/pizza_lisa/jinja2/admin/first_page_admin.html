@@ -1,0 +1,17 @@
+{% extends 'pizza_lisa/jinja2/main/main_after_auth.html' %}
+
+{% block content %}
+<p> Hello, Dear Admin </p>
+<br>
+{% for m in users %}
+    {% for n in about_user %}
+
+    <li> 
+        <p> <a href="/main/user/{{ pizza.id }}/"> *** {{ m.username }},</a> </p>
+        <p> {{n['new_message']}}</p>
+        <p> {{n.new_orders}}</p>
+    </li>
+
+        {% endfor %}
+{% endfor %} 
+{% endblock %}
