@@ -1,14 +1,15 @@
 from django.http import HttpResponseRedirect,HttpResponse
 from django.db import transaction
 from django.template import loader
-from rest_framework.permissions import IsAuthenticated
+
+from rest_framework.views import APIView
+from rest_framework.permissions import IsAdminUser
 
 from pizza_lisa.models import User,BasketModel, MessagesModel,OrderModel, ReviewModel, PizzaInOrder
-from rest_framework.views import APIView
 
 # Delete
 class UserADMINDeleteView (APIView):
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAdminUser]
     def get (self, request,user_id):
         with transaction.atomic():
             basket_of_user = BasketModel.objects.filter(user=user_id)

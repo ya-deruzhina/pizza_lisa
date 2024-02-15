@@ -4,7 +4,7 @@ from pizza_lisa.models import OrderModel,PizzaInOrder
 class OrderSerializer(serializers.ModelSerializer):
     class Meta:
         model = OrderModel
-        fields = ['user','name','phone','comment','address']
+        fields = ['user','name','phone','comment','address',"total_money"]
         
         def create(self, validated_data):
             return OrderModel.objects.create(**validated_data)

@@ -8,7 +8,7 @@ from rest_framework.test import force_authenticate
 class OrdersViewTestCase(APITestCase):
     fixtures=['dump_data'] 
 
-    def test_order_view_get(self):
+    def test_orders_view_get(self):
         user = User.objects.get(username='for_test')
         request = APIRequestFactory().get('/lisa/user_orders/')
         force_authenticate(request, user=user)

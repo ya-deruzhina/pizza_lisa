@@ -15,7 +15,7 @@ class CsrfExemptSessionAuthentication(SessionAuthentication):
         return   # To not perform the csrf check previously happening
 
 
-# По 1 шт 
+# Страница Одной Пицы  
 class PizzaView(APIView):
     permission_classes = [IsAuthenticated]
     authentication_classes = (CsrfExemptSessionAuthentication, BasicAuthentication)
@@ -47,7 +47,7 @@ class PizzaView(APIView):
 
         return HttpResponse(template.render(context,request))
 
-
+    # Оставить Отзыв о Пицце
     def post(self,request, pizza_id):
         try:
             data = {"user":request.user.id, "pizza":pizza_id,"review":(request.POST.get('review'))}

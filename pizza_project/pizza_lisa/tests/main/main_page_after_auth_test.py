@@ -21,3 +21,12 @@ class MainPageAfterAuthTestCase(APITestCase):
         request = APIRequestFactory().get('/lisa/')
         response = FirstPageAfterAuthView.as_view()(request)
         self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
+
+    def test_first_page_user_admin_after_auth_get(self):
+        user = User.objects.get(username='admin')
+        
+        request = APIRequestFactory().get('/lisa/')
+        force_authenticate(request, user=user)
+        response = FirstPageAfterAuthView.as_view()(request)
+
+        self.assertEqual(response.status_code, status.HTTP_302_FOUND)

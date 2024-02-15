@@ -4,7 +4,7 @@
     "pk": 1,
     "fields": {
         "password": "pbkdf2_sha256$720000$cvHZhqGyYoK6sXNaKBg0qS$liwc3rIznVgeEFhVNrK+0psWItxwkJVZE1NrlPPA2fU=",
-        "last_login": "2024-02-05T19:24:03.090Z",
+        "last_login": "2024-02-15T09:15:55.390Z",
         "is_superuser": true,
         "username": "admin",
         "last_name": "",
@@ -15,6 +15,7 @@
         "phone_number": 1,
         "first_name": "Admin",
         "discont": 0,
+        "total_shopping": 0.0,
         "groups": [],
         "user_permissions": []
     }
@@ -35,6 +36,7 @@
         "phone_number": 375299999999,
         "first_name": "For test",
         "discont": 0,
+        "total_shopping": 0.0,
         "groups": [],
         "user_permissions": []
     }
@@ -44,7 +46,7 @@
     "pk": 8,
     "fields": {
         "password": "pbkdf2_sha256$720000$M2kKqOQm0hefKJISmeF9vA$fuHMbZmt6lKf76SYub8jX9UGIZYQCoXD5iwyO8deUMA=",
-        "last_login": "2024-02-10T08:22:10.887Z",
+        "last_login": "2024-02-11T14:28:21.607Z",
         "is_superuser": false,
         "username": "user",
         "last_name": "",
@@ -54,7 +56,8 @@
         "date_joined": "2024-01-30T18:26:58.952Z",
         "phone_number": 375291112233,
         "first_name": "User",
-        "discont": 3,
+        "discont": 20,
+        "total_shopping": 0.0,
         "groups": [],
         "user_permissions": []
     }
@@ -64,7 +67,7 @@
     "pk": 9,
     "fields": {
         "password": "pbkdf2_sha256$720000$6Mxe7Ngx4yFcldXKxx09T4$EL0o7dtJSdNlheCEN2Tt50CPn3jEuwj74CzZfrxdvjs=",
-        "last_login": "2024-02-10T08:41:13.764Z",
+        "last_login": "2024-02-11T14:28:48.067Z",
         "is_superuser": false,
         "username": "marina",
         "last_name": "",
@@ -74,27 +77,8 @@
         "date_joined": "2024-02-04T07:35:54.137Z",
         "phone_number": 375298765321,
         "first_name": "Marisha",
-        "discont": 0,
-        "groups": [],
-        "user_permissions": []
-    }
-},
-{
-    "model": "pizza_lisa.user",
-    "pk": 23,
-    "fields": {
-        "password": "pbkdf2_sha256$720000$jbzqSl1GqyX0NFGnmyekbO$n8oXpYirmguTbywe5/EnZQzudZS+DBwnlTk6Cx+80QY=",
-        "last_login": "2024-02-10T07:45:22.030Z",
-        "is_superuser": false,
-        "username": "test",
-        "last_name": "",
-        "email": "",
-        "is_staff": false,
-        "is_active": true,
-        "date_joined": "2024-02-10T07:45:11.511Z",
-        "phone_number": 375291594878,
-        "first_name": "TEST",
-        "discont": 0,
+        "discont": 3,
+        "total_shopping": 55.04,
         "groups": [],
         "user_permissions": []
     }
@@ -115,6 +99,91 @@
         "phone_number": 375291594879,
         "first_name": "New",
         "discont": 0,
+        "total_shopping": 0.0,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "pizza_lisa.user",
+    "pk": 28,
+    "fields": {
+        "password": "pbkdf2_sha256$720000$v0NofYa8d3qtPSatD6tjHI$3Nyyvbsa3V2gVNRDJ7dLn6WcMNNtJTg1nhouzxFcn1U=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "ya_deruzhina",
+        "last_name": "",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-02-11T14:28:10.426Z",
+        "phone_number": 375252979865,
+        "first_name": "Marina",
+        "discont": 0,
+        "total_shopping": 0.0,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "pizza_lisa.user",
+    "pk": 29,
+    "fields": {
+        "password": "pbkdf2_sha256$720000$6LXmVvEDmzGEa72tarzUUk$sq6Oudk04npraYu9bFk+0OuQhMay8HlixOmHpPMISHc=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "romashka84",
+        "last_name": "",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-02-11T19:51:42.404Z",
+        "phone_number": 375251234569,
+        "first_name": "Romashka84",
+        "discont": 0,
+        "total_shopping": 0.0,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "pizza_lisa.user",
+    "pk": 30,
+    "fields": {
+        "password": "pbkdf2_sha256$720000$mzkkkcnWQRHAC1souHIdms$XfmBEH7NGWu3oxeJPf5/taNkTsX8257rJig9rKmDhZ0=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "rimma_friedman",
+        "last_name": "",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-02-11T19:53:02.665Z",
+        "phone_number": 375259876532,
+        "first_name": "RimmaFriedman",
+        "discont": 0,
+        "total_shopping": 0.0,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "pizza_lisa.user",
+    "pk": 31,
+    "fields": {
+        "password": "pbkdf2_sha256$720000$3MdTIgczvnFx4OnVni8QvA$2hhhSLsS2JVOuAqn6kPZjr4pzKWZSoGVcCboaYiadxc=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "janneta_cs",
+        "last_name": "",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-02-11T19:53:37.272Z",
+        "phone_number": 375256543298,
+        "first_name": "Janneta_Cs",
+        "discont": 0,
+        "total_shopping": 0.0,
         "groups": [],
         "user_permissions": []
     }
@@ -147,7 +216,7 @@
         "author_message": "user",
         "message": "Hello",
         "date_create": "2024-01-30T18:53:01.143Z",
-        "new": true
+        "new": false
     }
 },
 {
@@ -174,24 +243,68 @@
 },
 {
     "model": "pizza_lisa.messagesmodel",
-    "pk": 7,
+    "pk": 19,
     "fields": {
         "user_page": 8,
-        "author_message": "user",
-        "message": "Message",
-        "date_create": "2024-02-07T19:19:52.917Z",
+        "author_message": "admin",
+        "message": "Adminka",
+        "date_create": "2024-02-12T19:17:07.050Z",
         "new": true
     }
 },
 {
     "model": "pizza_lisa.messagesmodel",
-    "pk": 11,
+    "pk": 24,
+    "fields": {
+        "user_page": 8,
+        "author_message": "admin",
+        "message": "new",
+        "date_create": "2024-02-12T19:34:17.092Z",
+        "new": false
+    }
+},
+{
+    "model": "pizza_lisa.messagesmodel",
+    "pk": 25,
+    "fields": {
+        "user_page": 24,
+        "author_message": "admin",
+        "message": "Test",
+        "date_create": "2024-02-13T09:56:49.130Z",
+        "new": false
+    }
+},
+{
+    "model": "pizza_lisa.messagesmodel",
+    "pk": 26,
+    "fields": {
+        "user_page": 24,
+        "author_message": "admin",
+        "message": "Not new",
+        "date_create": "2024-02-13T09:57:17.815Z",
+        "new": false
+    }
+},
+{
+    "model": "pizza_lisa.messagesmodel",
+    "pk": 27,
     "fields": {
         "user_page": 9,
         "author_message": "marina",
-        "message": "Тесты",
-        "date_create": "2024-02-08T09:49:06.509Z",
-        "new": true
+        "message": "Test",
+        "date_create": "2024-02-14T09:58:43.655Z",
+        "new": false
+    }
+},
+{
+    "model": "pizza_lisa.messagesmodel",
+    "pk": 28,
+    "fields": {
+        "user_page": 9,
+        "author_message": "admin",
+        "message": "answer",
+        "date_create": "2024-02-14T09:59:00.549Z",
+        "new": false
     }
 },
 {
@@ -199,12 +312,13 @@
     "pk": 8,
     "fields": {
         "order_time": "2024-02-04T13:23:13.920Z",
-        "status": "NEW",
+        "status": "COOKING",
         "user": 9,
         "name": "marina",
         "phone": 375291234569,
         "address": "Self-pickup",
-        "comment": "test"
+        "comment": "test",
+        "total_money": 0.0
     }
 },
 {
@@ -217,7 +331,8 @@
         "name": "marina",
         "phone": 375291234569,
         "address": "Self-pickup",
-        "comment": "Test"
+        "comment": "Test",
+        "total_money": 0.0
     }
 },
 {
@@ -230,7 +345,8 @@
         "name": "marina",
         "phone": 375291234569,
         "address": "Self-pickup",
-        "comment": "test"
+        "comment": "test",
+        "total_money": 0.0
     }
 },
 {
@@ -243,7 +359,8 @@
         "name": "marina",
         "phone": 375291234569,
         "address": "Self-pickup",
-        "comment": "ttt"
+        "comment": "ttt",
+        "total_money": 0.0
     }
 },
 {
@@ -256,7 +373,8 @@
         "name": "marina",
         "phone": 375291234569,
         "address": "Self-pickup",
-        "comment": "NEW"
+        "comment": "NEW",
+        "total_money": 0.0
     }
 },
 {
@@ -264,12 +382,13 @@
     "pk": 18,
     "fields": {
         "order_time": "2024-02-06T19:40:21.000Z",
-        "status": "NEW",
+        "status": "ARCHIVE",
         "user": 8,
         "name": "user",
         "phone": 375291112233,
         "address": "Self-pickup",
-        "comment": "test"
+        "comment": "test",
+        "total_money": 0.0
     }
 },
 {
@@ -277,12 +396,13 @@
     "pk": 19,
     "fields": {
         "order_time": "2024-02-06T19:50:42.058Z",
-        "status": "NEW",
+        "status": "CANCELED",
         "user": 8,
         "name": "user",
         "phone": 375291112233,
         "address": "Self-pickup",
-        "comment": "diskont"
+        "comment": "diskont",
+        "total_money": 0.0
     }
 },
 {
@@ -290,12 +410,13 @@
     "pk": 20,
     "fields": {
         "order_time": "2024-02-07T10:43:44.290Z",
-        "status": "NEW",
+        "status": "ARCHIVE",
         "user": 8,
         "name": "user",
         "phone": 375291112233,
         "address": "Self-pickup",
-        "comment": "New"
+        "comment": "New",
+        "total_money": 0.0
     }
 },
 {
@@ -303,12 +424,13 @@
     "pk": 21,
     "fields": {
         "order_time": "2024-02-07T10:50:23.766Z",
-        "status": "NEW",
+        "status": "CANCELED",
         "user": 8,
         "name": "user",
         "phone": 375291112233,
         "address": "Self-pickup",
-        "comment": "Order without Comment"
+        "comment": "Order without Comment",
+        "total_money": 0.0
     }
 },
 {
@@ -316,12 +438,13 @@
     "pk": 22,
     "fields": {
         "order_time": "2024-02-07T10:52:32.357Z",
-        "status": "NEW",
+        "status": "COOKING",
         "user": 8,
         "name": "user",
         "phone": 375291112233,
         "address": "Self-pickup",
-        "comment": "Order without Comment"
+        "comment": "Order without Comment",
+        "total_money": 0.0
     }
 },
 {
@@ -329,12 +452,13 @@
     "pk": 23,
     "fields": {
         "order_time": "2024-02-07T12:53:46.172Z",
-        "status": "NEW",
+        "status": "TASTING",
         "user": 8,
         "name": "user",
         "phone": 375291112233,
         "address": "Self-pickup",
-        "comment": "Order without Comment"
+        "comment": "Order without Comment",
+        "total_money": 0.0
     }
 },
 {
@@ -342,12 +466,13 @@
     "pk": 24,
     "fields": {
         "order_time": "2024-02-07T12:59:25.345Z",
-        "status": "NEW",
+        "status": "PACKING",
         "user": 8,
         "name": "user",
         "phone": 375291112233,
         "address": "Self-pickup",
-        "comment": "Order without Comment"
+        "comment": "Order without Comment",
+        "total_money": 0.0
     }
 },
 {
@@ -355,12 +480,13 @@
     "pk": 25,
     "fields": {
         "order_time": "2024-02-07T13:01:48.861Z",
-        "status": "NEW",
+        "status": "IN_DELIVERY",
         "user": 8,
         "name": "user",
         "phone": 375291112233,
         "address": "Self-pickup",
-        "comment": "Order without Comment"
+        "comment": "Order without Comment",
+        "total_money": 0.0
     }
 },
 {
@@ -373,7 +499,8 @@
         "name": "user",
         "phone": 375291112233,
         "address": "Self-pickup",
-        "comment": "Order without Comment"
+        "comment": "Order without Comment",
+        "total_money": 0.0
     }
 },
 {
@@ -386,7 +513,8 @@
         "name": "user",
         "phone": 375291112233,
         "address": "Self-pickup",
-        "comment": "Order without Comment"
+        "comment": "Order without Comment",
+        "total_money": 0.0
     }
 },
 {
@@ -399,7 +527,8 @@
         "name": "user",
         "phone": 375291112233,
         "address": "Self-pickup",
-        "comment": "Order without Comment"
+        "comment": "Order without Comment",
+        "total_money": 0.0
     }
 },
 {
@@ -412,7 +541,8 @@
         "name": "user",
         "phone": 375291112233,
         "address": "Self-pickup",
-        "comment": "Order without Comment"
+        "comment": "Order without Comment",
+        "total_money": 0.0
     }
 },
 {
@@ -425,7 +555,8 @@
         "name": "user",
         "phone": 375291112233,
         "address": "Self-pickup",
-        "comment": "Order without Comment"
+        "comment": "Order without Comment",
+        "total_money": 0.0
     }
 },
 {
@@ -438,7 +569,8 @@
         "name": "marina",
         "phone": 375298765321,
         "address": "Self-pickup",
-        "comment": "Order without Comment"
+        "comment": "Order without Comment",
+        "total_money": 0.0
     }
 },
 {
@@ -451,7 +583,8 @@
         "name": "marina",
         "phone": 375298765321,
         "address": "Self-pickup",
-        "comment": "Order without Comment"
+        "comment": "Order without Comment",
+        "total_money": 0.0
     }
 },
 {
@@ -464,7 +597,8 @@
         "name": "marina",
         "phone": 375298765321,
         "address": "Self-pickup",
-        "comment": "Order without Comment"
+        "comment": "Order without Comment",
+        "total_money": 0.0
     }
 },
 {
@@ -477,7 +611,8 @@
         "name": "marina",
         "phone": 375298765321,
         "address": "Self-pickup",
-        "comment": "Order without Comment"
+        "comment": "Order without Comment",
+        "total_money": 0.0
     }
 },
 {
@@ -490,7 +625,8 @@
         "name": "marina",
         "phone": 375298765321,
         "address": "Self-pickup",
-        "comment": "Order without Comment"
+        "comment": "Order without Comment",
+        "total_money": 0.0
     }
 },
 {
@@ -503,7 +639,8 @@
         "name": "marina",
         "phone": 375298765321,
         "address": "Self-pickup",
-        "comment": "Order without Comment"
+        "comment": "Order without Comment",
+        "total_money": 0.0
     }
 },
 {
@@ -516,7 +653,8 @@
         "name": "marina",
         "phone": 375298765321,
         "address": "Self-pickup",
-        "comment": "Order without Comment"
+        "comment": "Order without Comment",
+        "total_money": 0.0
     }
 },
 {
@@ -529,7 +667,8 @@
         "name": "marina",
         "phone": 375298765321,
         "address": "Self-pickup",
-        "comment": "Order without Comment"
+        "comment": "Order without Comment",
+        "total_money": 0.0
     }
 },
 {
@@ -542,7 +681,8 @@
         "name": "marina",
         "phone": 375298765321,
         "address": "Self-pickup",
-        "comment": "Order without Comment"
+        "comment": "Order without Comment",
+        "total_money": 0.0
     }
 },
 {
@@ -555,7 +695,8 @@
         "name": "marina",
         "phone": 375298765321,
         "address": "Self-pickup",
-        "comment": "Order without Comment"
+        "comment": "Order without Comment",
+        "total_money": 0.0
     }
 },
 {
@@ -568,7 +709,8 @@
         "name": "marina",
         "phone": 375298765321,
         "address": "Self-pickup",
-        "comment": "Order without Comment"
+        "comment": "Order without Comment",
+        "total_money": 0.0
     }
 },
 {
@@ -581,7 +723,8 @@
         "name": "marina",
         "phone": 375298765321,
         "address": "Self-pickup",
-        "comment": "Order without Comment"
+        "comment": "Order without Comment",
+        "total_money": 0.0
     }
 },
 {
@@ -594,7 +737,8 @@
         "name": "marina",
         "phone": 375298765321,
         "address": "Self-pickup",
-        "comment": "Order without Comment"
+        "comment": "Order without Comment",
+        "total_money": 0.0
     }
 },
 {
@@ -607,7 +751,8 @@
         "name": "marina",
         "phone": 375298765321,
         "address": "Self-pickup",
-        "comment": "Order without Comment"
+        "comment": "Order without Comment",
+        "total_money": 0.0
     }
 },
 {
@@ -620,7 +765,134 @@
         "name": "marina",
         "phone": 375298765321,
         "address": "Minsk",
-        "comment": "Order without Comment"
+        "comment": "Order without Comment",
+        "total_money": 0.0
+    }
+},
+{
+    "model": "pizza_lisa.ordermodel",
+    "pk": 54,
+    "fields": {
+        "order_time": "2024-02-10T21:18:49.135Z",
+        "status": "NEW",
+        "user": 9,
+        "name": "marina",
+        "phone": 375298765321,
+        "address": "Self-pickup",
+        "comment": "Order without Comment",
+        "total_money": 0.0
+    }
+},
+{
+    "model": "pizza_lisa.ordermodel",
+    "pk": 56,
+    "fields": {
+        "order_time": "2024-02-14T09:55:30.772Z",
+        "status": "NEW",
+        "user": 9,
+        "name": "marina",
+        "phone": 375298765321,
+        "address": "Self-pickup",
+        "comment": "Order without Comment",
+        "total_money": 0.0
+    }
+},
+{
+    "model": "pizza_lisa.ordermodel",
+    "pk": 57,
+    "fields": {
+        "order_time": "2024-02-14T09:56:27.921Z",
+        "status": "ARCHIVE",
+        "user": 9,
+        "name": "marina",
+        "phone": 375298765321,
+        "address": "Self-pickup",
+        "comment": "Order without Comment",
+        "total_money": 0.0
+    }
+},
+{
+    "model": "pizza_lisa.ordermodel",
+    "pk": 58,
+    "fields": {
+        "order_time": "2024-02-14T10:44:38.349Z",
+        "status": "NEW",
+        "user": 9,
+        "name": "marina",
+        "phone": 375298765321,
+        "address": "Self-pickup",
+        "comment": "Order without Comment",
+        "total_money": 55.04
+    }
+},
+{
+    "model": "pizza_lisa.ordermodel",
+    "pk": 59,
+    "fields": {
+        "order_time": "2024-02-15T07:30:37.864Z",
+        "status": "NEW",
+        "user": 9,
+        "name": "marina",
+        "phone": 375298765321,
+        "address": "Self-pickup",
+        "comment": "Order without Comment",
+        "total_money": 9.7
+    }
+},
+{
+    "model": "pizza_lisa.ordermodel",
+    "pk": 60,
+    "fields": {
+        "order_time": "2024-02-15T08:07:28.450Z",
+        "status": "NEW",
+        "user": 9,
+        "name": "marina",
+        "phone": 375298765321,
+        "address": "Self-pickup",
+        "comment": "Order without Comment",
+        "total_money": 15.04
+    }
+},
+{
+    "model": "pizza_lisa.ordermodel",
+    "pk": 61,
+    "fields": {
+        "order_time": "2024-02-15T08:21:27.912Z",
+        "status": "NEW",
+        "user": 9,
+        "name": "marina",
+        "phone": 375298765321,
+        "address": "Self-pickup",
+        "comment": "Order without Comment",
+        "total_money": 10.0
+    }
+},
+{
+    "model": "pizza_lisa.ordermodel",
+    "pk": 62,
+    "fields": {
+        "order_time": "2024-02-15T08:24:43.939Z",
+        "status": "NEW",
+        "user": 9,
+        "name": "marina",
+        "phone": 375298765321,
+        "address": "Self-pickup",
+        "comment": "Order without Comment",
+        "total_money": 25.04
+    }
+},
+{
+    "model": "pizza_lisa.ordermodel",
+    "pk": 73,
+    "fields": {
+        "order_time": "2024-02-15T08:54:39.868Z",
+        "status": "IN_DELIVERY",
+        "user": 9,
+        "name": "marina",
+        "phone": 375298765321,
+        "address": "Self-pickup",
+        "comment": "Order without Comment",
+        "total_money": 55.04
     }
 },
 {
@@ -690,7 +962,7 @@
         "order": 12,
         "pizza": 2,
         "count": 1,
-        "price_one": 1.0
+        "price_one": 10.0
     }
 },
 {
@@ -700,7 +972,7 @@
         "order": 12,
         "pizza": 1,
         "count": 1,
-        "price_one": 1.0
+        "price_one": 20.0
     }
 },
 {
@@ -1084,6 +1356,116 @@
     }
 },
 {
+    "model": "pizza_lisa.pizzainorder",
+    "pk": 58,
+    "fields": {
+        "order": 54,
+        "pizza": 1,
+        "count": 1,
+        "price_one": 10.0
+    }
+},
+{
+    "model": "pizza_lisa.pizzainorder",
+    "pk": 62,
+    "fields": {
+        "order": 56,
+        "pizza": 2,
+        "count": 1,
+        "price_one": 15.5
+    }
+},
+{
+    "model": "pizza_lisa.pizzainorder",
+    "pk": 63,
+    "fields": {
+        "order": 56,
+        "pizza": 1,
+        "count": 2,
+        "price_one": 10.0
+    }
+},
+{
+    "model": "pizza_lisa.pizzainorder",
+    "pk": 64,
+    "fields": {
+        "order": 57,
+        "pizza": 1,
+        "count": 1,
+        "price_one": 10.0
+    }
+},
+{
+    "model": "pizza_lisa.pizzainorder",
+    "pk": 66,
+    "fields": {
+        "order": 57,
+        "pizza": 2,
+        "count": 1,
+        "price_one": 15.04
+    }
+},
+{
+    "model": "pizza_lisa.pizzainorder",
+    "pk": 67,
+    "fields": {
+        "order": 57,
+        "pizza": 1,
+        "count": 3,
+        "price_one": 10.0
+    }
+},
+{
+    "model": "pizza_lisa.pizzainorder",
+    "pk": 69,
+    "fields": {
+        "order": 59,
+        "pizza": 2,
+        "count": 1,
+        "price_one": 15.04
+    }
+},
+{
+    "model": "pizza_lisa.pizzainorder",
+    "pk": 70,
+    "fields": {
+        "order": 61,
+        "pizza": 1,
+        "count": 1,
+        "price_one": 10.0
+    }
+},
+{
+    "model": "pizza_lisa.pizzainorder",
+    "pk": 71,
+    "fields": {
+        "order": 62,
+        "pizza": 2,
+        "count": 1,
+        "price_one": 15.04
+    }
+},
+{
+    "model": "pizza_lisa.pizzainorder",
+    "pk": 75,
+    "fields": {
+        "order": 73,
+        "pizza": 2,
+        "count": 1,
+        "price_one": 15.04
+    }
+},
+{
+    "model": "pizza_lisa.pizzainorder",
+    "pk": 76,
+    "fields": {
+        "order": 73,
+        "pizza": 1,
+        "count": 4,
+        "price_one": 10.0
+    }
+},
+{
     "model": "pizza_lisa.reviewmodel",
     "pk": 1,
     "fields": {
@@ -1148,7 +1530,7 @@
     "fields": {
         "user": 8,
         "pizza": 2,
-        "count": 4
+        "count": 2
     }
 }
 ]

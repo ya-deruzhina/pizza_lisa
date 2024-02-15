@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import HttpResponse,HttpResponseRedirect
 from django.template import loader
 
 from rest_framework.views import APIView
@@ -17,8 +17,11 @@ class FirstPageAfterAuthView(APIView):
                 template = loader.get_template("main/page_404.html")
                 return HttpResponse(template.render()) 
         else:
-            template = loader.get_template("main/base_page_after_auth.html")
-            context = {
-                "first_name":first_name
-            }
-            return HttpResponse(template.render(context,request))
+            if request.user.username == 'admin':
+                return HttpResponseRedirect ("/main/") 
+            else:
+                template = loader.get_template("main/base_page_after_auth.html")
+                context = {
+                    "first_name":first_name
+                }
+                return HttpResponse(template.render(context,request))

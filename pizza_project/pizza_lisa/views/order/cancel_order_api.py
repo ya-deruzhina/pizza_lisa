@@ -6,7 +6,7 @@ from pizza_lisa.models import OrderModel
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.views import APIView
 
-# NEW -> CANCELED
+# Status NEW -> CANCELED
 class CancelOrderView(APIView):
     permission_classes = [IsAuthenticated]
 

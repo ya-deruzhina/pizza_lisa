@@ -14,7 +14,7 @@ from pizza_lisa.tests.user.delete_user_test import UserDeleteTestCase
 from pizza_lisa.tests.user.registration_test import UserCreatePostViewTestCase,CreateUserTransitViewTestCase
 
 
-print ('45 tests - OK')
+print ('47 tests - OK')
 
 all =(
     "MainPageBeforeAuthTestCase",

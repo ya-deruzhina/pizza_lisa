@@ -63,7 +63,7 @@ class BasketDeleteTestCase(APITestCase):
 class BasketAddTestCase(APITestCase):
     fixtures=['dump_data'] 
 
-    def test_delete_view_basket_get(self):
+    def test_add_view_basket_get(self):
         user = User.objects.get(username='for_test')
         basket = BasketModel.objects.all()
         basket_id = basket[0].id

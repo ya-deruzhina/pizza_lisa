@@ -37,7 +37,7 @@ Order User Information
 </p>
 {% for m in pizza %}
 <li> 
-    <p> {{m.pizza.name_pizza}} - {{m.pizza.ingredients}} - {{m.price_one}} - {{m.count}} - {{m.price_one * m.count}} </p>
+    <p> {{m.pizza.name_pizza}} - {{m.pizza.ingredients}} - {{m.price_one}} BYN - count: {{m.count}} - Total: {{m.price_one * m.count}} BYN</p>
 </li>
 
 {% endfor %} 

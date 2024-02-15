@@ -5,7 +5,7 @@ from pizza_lisa.models import MessagesModel
 from pizza_lisa.serializers import MessagesSerializer
 from pizza_lisa.forms import CreateMessageForm
 
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAdminUser
 from rest_framework.views import APIView
 from rest_framework.authentication import SessionAuthentication, BasicAuthentication 
 
@@ -17,10 +17,9 @@ class CsrfExemptSessionAuthentication(SessionAuthentication):
 
 class MessageAdminView(APIView):
     # Страница со всеми сообщения + оставить новое
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAdminUser]
     authentication_classes = (CsrfExemptSessionAuthentication, BasicAuthentication)
     def get(self,request,user_id):
-        # username = 'admin'
         message = MessagesModel.objects.filter(user_page_id=user_id).order_by('date_create')
         template = loader.get_template("about_user/messages_main.html")
         context = {
@@ -49,7 +48,7 @@ class MessageAdminView(APIView):
 
 # Delete message
 class MessageAdminDelete (APIView):
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAdminUser]
     def get (self, request, user_id,_id):
         try:
             message = MessagesModel.objects.get(id=_id)
@@ -62,9 +61,10 @@ class MessageAdminDelete (APIView):
         else:
             message.delete()
             return HttpResponseRedirect (f"/main/user/message/{user_id}")
-        
+
+# Меняет статус на Прочтено        
 class MessageAdminRead (APIView):
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAdminUser]
     def get (self, request, user_id,_id):
         try:
             message = MessagesModel.objects.get(id=_id)

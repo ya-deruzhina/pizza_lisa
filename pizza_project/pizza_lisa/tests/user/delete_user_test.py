@@ -7,7 +7,7 @@ from rest_framework.test import force_authenticate
 class UserDeleteTestCase(APITestCase):
     fixtures=['dump_data'] 
 
-    def test_delete_view_basket_get(self):
+    def test_delete_user_get(self):
         user = User.objects.get(username='for_test')
         user_first = len(User.objects.all())
 

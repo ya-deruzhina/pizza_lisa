@@ -9,6 +9,7 @@ class OrderViewTestCase(APITestCase):
 
     # Тест на OrderView (get)
     def test_order_view_true_get(self):
+        print("\nMistake is OK!")
         user = User.objects.get(username='for_test')
         request = APIRequestFactory().get('/lisa/order/')
         force_authenticate(request, user=user)

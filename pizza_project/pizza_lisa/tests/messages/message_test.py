@@ -59,7 +59,7 @@ class MessageDeleteTestCase(APITestCase):
         user = User.objects.get(username='for_test')
         message = MessagesModel.objects.all()
         message_id = message[0].id        
-        message_first_count = len(MessagesModel.objects.all())
+        message_first_count = len(message)
 
         request = APIRequestFactory().get('/lisa/message/delete/')
         force_authenticate(request, user=user)

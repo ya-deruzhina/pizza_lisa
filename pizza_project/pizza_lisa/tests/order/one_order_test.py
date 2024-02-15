@@ -7,7 +7,7 @@ from rest_framework.test import force_authenticate
 class OneOrderTestCase(APITestCase):
     fixtures=['dump_data'] 
 
-    def test_one_order_get(self):
+    def test_one_correct_order_get(self):
         user = User.objects.get(username='for_test')
         order_id = OrderModel.objects.all()[0].id
         

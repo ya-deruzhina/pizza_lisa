@@ -28,7 +28,8 @@ class OrderModel(models.Model):
     name = models.CharField(null = False)
     phone = models.BigIntegerField(null = False)
     address = models.TextField(default = "Self-pickup")
-    comment = models.TextField(null = True, default = 'Order without Comment') 
+    comment = models.TextField(null = True, default = 'Order without Comment')
+    total_money = models.FloatField(null=False)
 
     def __str__(self):
         return self.status

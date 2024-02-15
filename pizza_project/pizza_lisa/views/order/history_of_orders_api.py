@@ -11,8 +11,7 @@ class OrdersUserView(APIView):
     permission_classes = [IsAuthenticated]
     
     # Соединяю модели OrderModel и PizzaInOrder по номеру заказа
-    def get(self,request):
-        
+    def get(self,request):        
         orders_with_pizza = OrderModel.objects.filter(user=request.user.id).order_by('-order_time')
         pizza_in_order = {}
 
@@ -25,7 +24,7 @@ class OrdersUserView(APIView):
         for i in numbers_orders:
             try:
                 orders = OrderModel.objects.get (id = i)
-            
+                all_price = orders_with_pizza.get(id=i).total_money            
                     
             except Exception  as exs:
                 print ('Warming!!!', exs)   
@@ -33,10 +32,6 @@ class OrdersUserView(APIView):
                 return HttpResponse(template.render())
             
             else:
-                pizza = pizza_in_order [i]
-                all_price = 0
-                for m in range(0,(len(pizza))):
-                    all_price += (pizza[m].count * pizza[m].price_one)
                 order_time = orders.order_time.strftime("%H:%M:%S - %d.%m.%Y ")
                 pizza = {
                     "status": orders.status,

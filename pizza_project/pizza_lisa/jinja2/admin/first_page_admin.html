@@ -15,3 +15,17 @@
         {% endfor %}
 {% endfor %} 
 {% endblock %}
+
+
+"users": users,
+"about_user":about_user,
+"price":price,
+
+
+<li> 
+    <p> <a href="/pizza/lisa/{{ pizza.id }}/"> *** {{ pizza.name_pizza }},</a> </p>
+    <p> Sale from {{ pizza.price }} BYN to {{ pizza.price_disсont }} BYN </p> 
+        <form action="/pizza/lisa/basket/{{ pizza.id }}/" method="post">
+            <button type="submit">Add to Basket</button>
+        </form>
+        <br>

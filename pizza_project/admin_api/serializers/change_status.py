@@ -1,10 +1,9 @@
 from rest_framework import serializers
-from pizza_lisa.models import OrderModel
+from pizza_lisa.models import OrderModel 
 
 
 class ChangeStatusSerializer(serializers.Serializer):
-    KIND_CHOICES = ["NEW","COOKING","TASTING","PACKING","IN_DELIVERY","ARCHIVE","CANCELED"]
-    status = serializers.ChoiceField (choices= KIND_CHOICES)
+    status = serializers.ChoiceField (choices= OrderModel.STATUS_ORDER)
 
     def update(self,instance,validated_data):
         for attr, value in validated_data.items():

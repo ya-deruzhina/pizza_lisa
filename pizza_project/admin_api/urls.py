@@ -9,14 +9,18 @@ load_dotenv()
 urlpatterns = [
 
     path("",FirstAdminPageView.as_view()),
-    path("user/<int:user_id>/",AdminAboutUserView.as_view()),
+
+    # Orders
     path("user/orders/<int:order_id>/",OneOrderPageView.as_view()),
-    path("user/delete/<int:user_id>/",UserADMINDeleteView.as_view()),
-    path("user/all/",AboutAllUersPageView.as_view()),
-    
     path("user/all_orders/<int:user_id>/",OrdersByUserView.as_view()),
     path("user/all_orders_archive/<int:user_id>/",OrdersByUserArchiveView.as_view()),
 
+    # About User
+    path("user/<int:user_id>/",AdminAboutUserView.as_view()),
+    path("user/delete/<int:user_id>/",UserADMINDeleteView.as_view()),
+    path("user/all/",AboutAllUersPageView.as_view()),
+    
+    # Message
     path("user/message/<int:user_id>/",MessageAdminView.as_view()),
     path("user/message/delete/<int:user_id>/<int:_id>/",MessageAdminDelete.as_view()),
     path("user/message/read/<int:user_id>/<int:_id>/",MessageAdminRead.as_view()),
