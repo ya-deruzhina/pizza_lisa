@@ -10,8 +10,8 @@ class CatalogView(APIView):
     # Выводит все товары из БД
     permission_classes = [IsAuthenticated]
     def get(self,request):
-        catalog_discont = CatalogModel.objects.filter(price_disсont__gt=0)
-        catalog = CatalogModel.objects.filter(price_disсont=0)
+        catalog_discont = CatalogModel.objects.filter(price_disсont__gt=0).filter(amount__gt=0).order_by('name_pizza')
+        catalog = CatalogModel.objects.filter(price_disсont=0).filter(amount__gt=0).order_by('name_pizza')
         template = loader.get_template("catalog/catalog.html")
         context = {
             "catalog":catalog,

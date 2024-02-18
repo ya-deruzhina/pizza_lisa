@@ -2,7 +2,7 @@
 
 {% block content %}
 <p> Page About All Users </p>
-Total sales {{price}} BYN </p>
+Total sales {{(price|float|round(2))}} BYN </p>
 
 <br>
 {% for m in users %}

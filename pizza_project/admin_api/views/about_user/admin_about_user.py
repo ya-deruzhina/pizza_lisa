@@ -27,7 +27,7 @@ class AdminAboutUserView(APIView):
 
         except Exception as exs:
             print ('Warming!!!', exs)   
-            template = loader.get_template("main/page_404.html")
+            template = loader.get_template("page_404_admin.html")
             return HttpResponse(template.render())
 
         else:
@@ -57,7 +57,7 @@ class AdminAboutUserView(APIView):
 
         except Exception as exs:
             print ('Warming!!!', exs)   
-            template = loader.get_template("main/page_404.html")
+            template = loader.get_template("page_404_admin.html")
             return HttpResponse(template.render())
         else:
             serializer.save()

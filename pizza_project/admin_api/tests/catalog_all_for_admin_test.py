@@ -34,7 +34,7 @@ class CreateCatalogViewTestCase(APITestCase):
         user = User.objects.get(username='admin')
         first_len = len(CatalogModel.objects.all())
 
-        data = {"name_pizza":"NEW","ingredients":"NEW","price":10,"price_disсont":5}
+        data = {"name_pizza":"NEW","ingredients":"NEW","price":10,"price_disсont":5,"amount":10}
         request = APIRequestFactory().post('/main/catalog/', data)
         force_authenticate(request, user=user)
         response = CatalogAdminView.as_view()(request)
@@ -47,12 +47,13 @@ class CreateCatalogViewTestCase(APITestCase):
         assert new_pizza.ingredients == "NEW"
         assert new_pizza.price == 10
         assert new_pizza.price_disсont == 5
+        assert new_pizza.amount == 10
 
-    def test_create_catalog_without_price_discont_post(self):
+    def test_create_catalog_without_price_discont_and_amount_post(self):
         user = User.objects.get(username='admin')
         first_len = len(CatalogModel.objects.all())
 
-        data = {"name_pizza":"NEW","ingredients":"NEW","price":10}
+        data = {"name_pizza":"NEW","ingredients":"NEW","price":10,"amount":''}
         request = APIRequestFactory().post('/main/catalog/', data)
         force_authenticate(request, user=user)
         response = CatalogAdminView.as_view()(request)
@@ -65,6 +66,7 @@ class CreateCatalogViewTestCase(APITestCase):
         assert new_pizza.ingredients == "NEW"
         assert new_pizza.price == 10
         assert new_pizza.price_disсont == 0
+        assert new_pizza.amount == 0
 
     def test_create_catalog_false_price_post(self):
         print("\nMistake is OK!")

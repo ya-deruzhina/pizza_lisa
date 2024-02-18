@@ -50,7 +50,7 @@ class ChangePizzaTestCase(APITestCase):
         pizza = CatalogModel.objects.all()[0]
         pizza_id = pizza.id
 
-        data = {"name_pizza":"new_name"}
+        data = {"name_pizza":"new_name","amount":''}
         request = APIRequestFactory().post('/main/catalog/', data)
         force_authenticate(request, user=user)
         response = PizzaOneView.as_view()(request, _id=pizza_id)
@@ -63,7 +63,7 @@ class ChangePizzaTestCase(APITestCase):
         pizza = CatalogModel.objects.all()[0]
         pizza_id = pizza.id
 
-        data = {"ingredients":"new"}
+        data = {"ingredients":"new","amount":''}
         request = APIRequestFactory().post('/main/catalog/', data)
         force_authenticate(request, user=user)
         response = PizzaOneView.as_view()(request, _id=pizza_id)
@@ -76,7 +76,7 @@ class ChangePizzaTestCase(APITestCase):
         pizza = CatalogModel.objects.all()[0]
         pizza_id = pizza.id
 
-        data = {"price":100}
+        data = {"price":100,"amount":''}
         request = APIRequestFactory().post('/main/catalog/', data)
         force_authenticate(request, user=user)
         response = PizzaOneView.as_view()(request, _id=pizza_id)
@@ -89,7 +89,7 @@ class ChangePizzaTestCase(APITestCase):
         pizza = CatalogModel.objects.all()[0]
         pizza_id = pizza.id
 
-        data = {"price_disсont":1000}
+        data = {"price_disсont":1000,"amount":''}
         request = APIRequestFactory().post('/main/catalog/', data)
         force_authenticate(request, user=user)
         response = PizzaOneView.as_view()(request, _id=pizza_id)
@@ -104,7 +104,7 @@ class ChangePizzaTestCase(APITestCase):
         pizza = CatalogModel.objects.all()[0]
         pizza_id = pizza.id
 
-        data = {"price":"test"}
+        data = {"price":"test","amount":''}
         request = APIRequestFactory().post('/main/catalog/', data)
         force_authenticate(request, user=user)
         response = PizzaOneView.as_view()(request, _id=pizza_id)
@@ -117,7 +117,7 @@ class ChangePizzaTestCase(APITestCase):
         pizza = CatalogModel.objects.all()[0]
         pizza_id = pizza.id
 
-        data = {"price_disсont":"test"}
+        data = {"price_disсont":"test","amount":''}
         request = APIRequestFactory().post('/main/catalog/', data)
         force_authenticate(request, user=user)
         response = PizzaOneView.as_view()(request, _id=pizza_id)
@@ -129,7 +129,7 @@ class ChangePizzaTestCase(APITestCase):
         pizza = CatalogModel.objects.all()[0]
         pizza_id = pizza.id
 
-        data = {"price":100}
+        data = {"price":100,"amount":''}
         request = APIRequestFactory().post('/main/catalog/', data)
         force_authenticate(request, user=user)
         response = PizzaOneView.as_view()(request, _id=pizza_id)
@@ -141,7 +141,7 @@ class ChangePizzaTestCase(APITestCase):
         user = User.objects.get(username='admin')
         pizza_id = 9999999999999999999999999999999
 
-        data = {"price":100}
+        data = {"price":100,"amount":''}
         request = APIRequestFactory().post('/main/catalog/', data)
         force_authenticate(request, user=user)
         response = PizzaOneView.as_view()(request, _id=pizza_id)

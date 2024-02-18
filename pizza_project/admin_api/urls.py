@@ -14,6 +14,8 @@ urlpatterns = [
     path("user/orders/<int:order_id>/",OneOrderPageView.as_view()),
     path("user/all_orders/<int:user_id>/",OrdersByUserView.as_view()),
     path("user/all_orders_archive/<int:user_id>/",OrdersByUserArchiveView.as_view()),
+    path("all_orders_in_work/",AllOrdersInWorkView.as_view()),
+    path("all_orders/",AllOrdersView.as_view()),
 
     # About User
     path("user/<int:user_id>/",AdminAboutUserView.as_view()),
@@ -29,6 +31,9 @@ urlpatterns = [
     path("catalog/", CatalogAdminView.as_view()),
     path("catalog/<int:_id>/", PizzaOneView.as_view()),
     path("catalog/delete/<int:_id>/", PizzaAdminDelete.as_view()),
+    path("catalog/pizza/<int:_id>/", PizzaInOrderAndBasketView.as_view()),
+    path("catalog/pizza/delete_from_basket/<int:basket_id>/",DeletePizzaFromBasketView.as_view()),
+    path("catalog/pizza/delete_from_order/<int:pizza_id>/",DeletePizzaFromOrderView.as_view()),
 
     
 

@@ -5,7 +5,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.views import APIView
 from rest_framework.authentication import SessionAuthentication, BasicAuthentication 
 
-from pizza_lisa.models import BasketModel, User
+from pizza_lisa.models import BasketModel, User, CatalogModel
 from pizza_lisa.serializers import BasketSerializer
 from pizza_lisa.forms import CreateOrderForm
 
@@ -27,7 +27,6 @@ class BasketView(APIView):
         basket_with_price = {}
         all_price = 0
         price_without_discont = 0
-        discont = 0
 
         for basket in range (0,len(user_basket)):
             baskets ={}
@@ -40,7 +39,7 @@ class BasketView(APIView):
                 baskets['price_one'] = user_basket[basket].pizza.price_disсont
             else:
                 if user_discont != 0:
-                    baskets['price_one'] = round( user_basket[basket].pizza.price * (1-(user_discont/100)), 2)
+                    baskets['price_one'] = round(user_basket[basket].pizza.price * (1-(user_discont/100)), 2)
                 else:
                     baskets['price_one'] = user_basket[basket].pizza.price
 
@@ -53,7 +52,9 @@ class BasketView(APIView):
             baskets['id'] = user_basket[basket].id
             basket_with_price[basket] = baskets
         
-        discont += round((price_without_discont - all_price),2)
+        discont = round((price_without_discont - all_price),2)
+        price_without_discont = round(price_without_discont,2)
+        all_price = round(all_price,2)
 
         keys = basket_with_price.keys()
         context = {
@@ -93,6 +94,20 @@ class BasketView(APIView):
             users_with_pizza.count += 1
             users_with_pizza.save()
 
+        try:
+            catalog_amount = CatalogModel.objects.get(id=pizza_id)
+            if catalog_amount.amount == 0:
+                template = loader.get_template("catalog/error_not_pizza.html")
+                return HttpResponse(template.render())
+            else:
+                catalog_amount.amount -= 1
+                catalog_amount.save()
+
+        except Exception as exs:
+                print ('Warming!!!', exs)   
+                template = loader.get_template("main/page_404.html")
+                return HttpResponse(template.render())
+
         return HttpResponseRedirect ("/pizza/lisa/basket/") 
     
 class BasketDelete(APIView):
@@ -110,9 +125,21 @@ class BasketDelete(APIView):
         else:
             basket.count -=1
             basket.save()
+
             if basket.count == 0:
                 basket.delete()
-            return HttpResponseRedirect ("/pizza/lisa/basket/")
+            
+            try:
+                catalog_amount = CatalogModel.objects.get(id=basket.pizza_id)
+                catalog_amount.amount += 1
+                catalog_amount.save()
+                
+            except Exception as exs:
+                    print ('Warming!!!', exs)   
+                    template = loader.get_template("main/page_404.html")
+                    return HttpResponse(template.render())
+    
+        return HttpResponseRedirect ("/pizza/lisa/basket/")
     
 
 class BasketAdd(APIView):
@@ -130,4 +157,20 @@ class BasketAdd(APIView):
         else:
             basket.count +=1
             basket.save()
-            return HttpResponseRedirect ("/pizza/lisa/basket/")
+
+        try:
+            catalog_amount = CatalogModel.objects.get(id=basket.pizza_id)
+            if catalog_amount.amount == 0:
+                template = loader.get_template("catalog/error_not_pizza.html")
+                return HttpResponse(template.render())
+            else:
+                catalog_amount.amount -= 1
+                catalog_amount.save()
+            
+        except Exception as exs:
+                print ('Warming!!!', exs)   
+                template = loader.get_template("main/page_404.html")
+                return HttpResponse(template.render())
+
+        return HttpResponseRedirect ("/pizza/lisa/basket/")
+    

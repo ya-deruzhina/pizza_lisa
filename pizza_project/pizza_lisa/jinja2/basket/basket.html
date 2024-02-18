@@ -4,12 +4,12 @@
 <p> Please, check your Order </p>
 <br>
 {% for m in keys %}
-<li> <p> {{basket_with_price[m].pizza}} - {{basket_with_price[m].count}} pieces Price: By one {{basket_with_price[m].price_one}} BYN -- Total: {{basket_with_price[m].price}} BYN
+<li> <p> {{basket_with_price[m].pizza}} - {{basket_with_price[m].count}} pieces Price: By one {{(basket_with_price[m].price_one|float|round(2))}} BYN -- Total: {{(basket_with_price[m].price|float|round(2))}} BYN
     <a href="/pizza/lisa/basket/add/{{ basket_with_price[m].id }}/"> Add </a><a href="/pizza/lisa/basket/delete/{{ basket_with_price[m].id }}/"> Delete </a> </p> 
 </li>
 {% endfor %} 
 <br>
-<p>Total Cost: {{all_price}} BYN</p>
+<p>Total Cost: {{(all_price|float|round(2))}} BYN</p>
 
     <form action="/pizza/lisa/order/" method="post">
         {{ form }}

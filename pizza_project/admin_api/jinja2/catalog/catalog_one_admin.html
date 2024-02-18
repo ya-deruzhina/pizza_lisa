@@ -2,16 +2,21 @@
 
 {% block content %}
 <p> About Pizza - {{catalog.name_pizza}} </p>
-
+<p>
+    <a href="/main/catalog/pizza/{{ catalog.id }}/"> Can I Delete This Pizza? </a>
+</p>
 *****************************************************************************************************
 <br>
 <li> <p>
     Ingredients - {{ catalog.ingredients }}
 </p>
-<p> Price - {{ catalog.price}}
+<p> Price - {{ (catalog.price|float|round(2))}}
 </p>
 <p>    
-    Price Discont - {{ catalog.price_disсont }}     
+    Price Discont - {{ (catalog.price_disсont|float|round(2)) }}     
+</p>
+<p>    
+    Amount - {{ catalog.amount }}     
 </p>
 *****************************************************************************************************
 <br> 
@@ -26,5 +31,5 @@
     <a href="/main/catalog/delete/{{ catalog.id }}/"> Delete </a>
 </p>
 
-<p> <a href="/main/catalog/"> Back </a><br> 
+<p> <a href="/main/catalog/"> Back </a><br>
 {% endblock %}

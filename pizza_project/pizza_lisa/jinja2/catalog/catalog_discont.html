@@ -5,7 +5,7 @@
     {% for pizza in catalog %}
     <li> 
         <p> <a href="/pizza/lisa/{{ pizza.id }}/"> *** {{ pizza.name_pizza }},</a> </p>
-        <p> Sale from {{ pizza.price }} BYN to {{ pizza.price_disсont }} BYN </p> 
+        <p> Sale from {{ (pizza.price|float|round(2)) }} BYN to {{ (pizza.price_disсont|float|round(2)) }} BYN </p> 
             <form action="/pizza/lisa/basket/{{ pizza.id }}/" method="post">
                 <button type="submit">Add to Basket</button>
             </form>

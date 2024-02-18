@@ -8,9 +8,9 @@
 
 <p> 
     Your order number {{order_pizza.id}}<br>
-    Total Cost {{order_pizza.total_money}}
+    Total Cost {{(price|float|round(2))}}
     {% for p in pizza %}
-    <li> Name pizza : {{p.pizza}} --- Count : {{p.count}} --- Price: {{p.count * p.price_one}}
+    <li> Name pizza : {{p.pizza}} --- Count : {{p.count}} --- Price: {{((p.count * p.price_one)|float|round(2))}}
     </li>
     {% endfor %} 
 </p> 

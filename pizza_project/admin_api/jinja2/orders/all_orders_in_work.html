@@ -1,0 +1,19 @@
+{% extends 'main_admin.html' %}
+
+{% block content %}
+<br> 
+<p> Count Orders {{count_orders}} </p>
+*****************************************************************************************************
+<br>
+<p>
+    User Orders
+</p>
+{% for m in orders %}
+<li> 
+    <p> <a href="/main/user/orders/{{ m.id }}/"> Order {{ m.id }}</a> | User: {{m.user.username}} | Address: {{m.address}} | Status: {{m.status}} | Total Money {{(m.total_money|float|round(2))}} </p>
+</li>
+
+{% endfor %} 
+
+<p> <a href="/main/"> Back </a><br> 
+{% endblock %}

@@ -27,24 +27,34 @@ class OneOrderPageView(APIView):
         
         except Exception as exs:
             print ('Warming!!!', exs)  
-            template = loader.get_template("main/page_404.html")
+            template = loader.get_template("page_404_admin.html")
             return HttpResponse(template.render())
         
         else:
-            pizza = PizzaInOrder.objects.filter(order_id=order_id)
+            pizza = PizzaInOrder.objects.filter(order_id=order_id).order_by('pizza')
 
             cost = 0
-            for m in pizza:
-                cost += m.count * m.price_one
+            pizza_in_order = {}
+            if len(pizza)>0: 
+                for s in pizza:
+                    price = round((s.count * s.price_one),2)
+                    pizza_in_order[s.id] = {'price':price,'order':s}
 
+                for m in pizza:
+                    cost += (m.count * m.price_one)
+                    cost = round(cost,2)
+
+            else:
+                pizza_in_order = pizza
             template = loader.get_template("orders/one_page_of_order.html")
             context = {
                 "form":ChangeStatusOrderForm(),
                 "user_order":user_order,
-                "pizza":pizza,
                 "cost":cost,
+                "pizza_in_order":pizza_in_order,
 
             }
+            # import pdb; pdb.set_trace()
             return HttpResponse(template.render(context,request))
 
     # Изменить статус заказа (+ если переводит в Архив, то добавляет к юзеру сумму заказа)
@@ -57,7 +67,7 @@ class OneOrderPageView(APIView):
 
             except Exception as exs:
                     print ('Warming!!!', exs)  
-                    template = loader.get_template("main/page_404.html")
+                    template = loader.get_template("page_404_admin.html")
                     return HttpResponse(template.render())
             else:
                 if OrderModel.objects.get(id=order_id).status != "ARCHIVE" and request.POST['status'] == "ARCHIVE":
@@ -73,7 +83,7 @@ class OneOrderPageView(APIView):
 
         except Exception as exs:
             print ('Warming!!!', exs)   
-            template = loader.get_template("main/page_404.html")
+            template = loader.get_template("page_404_admin.html")
             return HttpResponse(template.render())
         else:
             serializer.save()

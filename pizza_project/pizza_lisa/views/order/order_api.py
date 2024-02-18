@@ -25,7 +25,8 @@ class OrderView(APIView):
             order_number = OrderModel.objects.filter(user=request.user.id).order_by('-order_time')[0].id
             order_pizza = OrderModel.objects.get(id=order_number)
             pizza_in_order = PizzaInOrder.objects.filter(order=order_number)
-        
+            price = round(order_pizza.total_money,2)
+
         except Exception as exs:
             print ('Warming!!!', exs)   
             template = loader.get_template("main/page_404.html")
@@ -37,6 +38,7 @@ class OrderView(APIView):
                 "order_pizza":order_pizza,
                 "pizza":pizza_in_order,
                 "user":user,
+                "price":price,
             }
             return HttpResponse(template.render(context,request))
 
@@ -56,11 +58,15 @@ class OrderView(APIView):
             for pizza in basket:
                 if catalog.get(id = pizza.pizza_id).price_disсont !=0:
                     price_one = catalog.get(id = pizza.pizza_id).price_disсont
+                    price_one = round(price_one,2)
                 else:
                     price_one = catalog.get(id = pizza.pizza_id).price
+                    price_one = round(price_one,2)
                     if User.objects.get(id = id_user).discont != 0:
-                        price_one = round(price_one * (1-(User.objects.get(id=id_user).discont/100)), 2)
+                        price_one = (price_one * (1-(User.objects.get(id=id_user).discont/100)))
+                        price_one = round(price_one,2)
                 price_all += price_one * pizza.count
+                price_all = round(price_all,2)
                 data_pizza[n] = {'count':pizza.count, 'pizza':pizza.pizza_id,'price_one':price_one}           
                 n+=1
 
@@ -97,9 +103,10 @@ class OrderView(APIView):
                 order_number = OrderModel.objects.filter(user=id_user).order_by('-order_time')[0].id
                 for a in data_pizza.keys():
                     data = data_pizza[a]
-                    # data['order']  = order_number
-                    data = {'order':order_number,'count':data['count'], 'pizza':data['pizza'],'price_one':data['price_one']}
-                    # import pdb; pdb.set_trace()
+                    price_one = float(data['price_one'])
+                    price_one = round(price_one,2)
+
+                    data = {'order':order_number,'count':data['count'], 'pizza':data['pizza'],'price_one':price_one}
                     try:
                         serializer = OrderPizzaSerializer(data=data)
                         serializer.is_valid(raise_exception=True)
@@ -131,6 +138,6 @@ class OrderView(APIView):
                     user.discont = 3      
                     user.save()
             
-
+        # import pdb; pdb.set_trace()
         return HttpResponseRedirect ("/pizza/lisa/order/")
     

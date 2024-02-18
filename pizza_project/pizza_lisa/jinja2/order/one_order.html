@@ -3,14 +3,14 @@
 {% block content %}
 
     <li>
-        <p>***** Order - {{ pizza.id }} ,</a></p> 
+        <p>***** Order - {{ pizza.id }} </a></p> 
         <p> Date - {{ pizza.order_time }} </p>
         <p> Comment - {{ pizza.comment }} </p>
         <p> Status - {{ pizza.status }} </p>
         <p> Name - {{ pizza.name }} </p>
         <p> Phone - {{ pizza.phone }} </p>
         <p> Address - {{ pizza.address }} </p>
-        <p> Total: {{pizza.all_price}} BYN </p>
+        <p> Total: {{(pizza.all_price|float|round(2))}} BYN </p>
         {% for m in count_pizza %}
         <li>
             {{ pizza.one_pizza_in_order[m]['pizza'] }} --- Count {{ pizza.one_pizza_in_order[m]['count'] }}

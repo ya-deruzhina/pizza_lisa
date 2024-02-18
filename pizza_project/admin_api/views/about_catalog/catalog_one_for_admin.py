@@ -28,7 +28,7 @@ class PizzaOneView(APIView):
         
         except Exception as exs:
             print ('Warming!!!', exs)   
-            template = loader.get_template("main/page_404.html")
+            template = loader.get_template("page_404_admin.html")
             return HttpResponse(template.render())
         
         else:
@@ -45,12 +45,23 @@ class PizzaOneView(APIView):
         try:
             data = request.POST
             instance = CatalogModel.objects.get(pk=_id)
+            if request.POST['amount'] != '':
+                basket = BasketModel.objects.filter(pizza_id=_id)
+                amount_in_basket = 0
+
+                for b in range(0,len(basket)):
+                    amount_in_basket += basket[b].count
+                
+                if int(request.POST['amount']) < amount_in_basket:
+                    print ('Warming!!! Amount In Basket Is More!')   
+                    template = loader.get_template("page_404_admin.html")
+                    return HttpResponse(template.render())
             serializer = UpdateCatalogSerializer (data=data,instance=instance)
             serializer.is_valid(raise_exception=True)
 
         except Exception as exs:
             print ('Warming!!!', exs)   
-            template = loader.get_template("main/page_404.html")
+            template = loader.get_template("page_404_admin.html")
             return HttpResponse(template.render())
         else:
             serializer.save()
@@ -66,7 +77,7 @@ class PizzaAdminDelete (APIView):
     
         except Exception  as exs:
             print ('Warming!!!', exs)   
-            template = loader.get_template("main/page_404.html")
+            template = loader.get_template("page_404_admin.html")
             return HttpResponse(template.render())
         
         else:
@@ -76,15 +87,15 @@ class PizzaAdminDelete (APIView):
             orders_in_work = OrderModel.objects.exclude(status='CANCELED').exclude(status='ARCHIVE')
 
             number_orders = []
+            if len(orders_in_work)>0:
+                for m in (0, len(orders_in_work)-1):
+                    number_orders.append(orders_in_work[m].id)
 
-            for m in (0, len(orders_in_work)-1):
-                number_orders.append(orders_in_work[m].id)
-
-            for n in number_orders:
-                if len (pizza.filter(order_id=n)) > 0:
-                    print ('Warming!!! Pizza In Order', )   
-                    template = loader.get_template("main/page_404.html")
-                    return HttpResponse(template.render())
+                for n in number_orders:
+                    if len (pizza.filter(order_id=n)) > 0:
+                        print ('Warming!!! Pizza In Order', )   
+                        template = loader.get_template("page_404_admin.html")
+                        return HttpResponse(template.render())
 
             catalog.delete()
             review.delete()

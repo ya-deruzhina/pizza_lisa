@@ -10,6 +10,9 @@ from rest_framework.permissions import IsAdminUser
 from rest_framework.views import APIView
 from rest_framework.authentication import SessionAuthentication, BasicAuthentication 
 
+from django.core.paginator import Paginator
+from django.shortcuts import render
+
 class CsrfExemptSessionAuthentication(SessionAuthentication):
 
     def enforce_csrf(self, request):
@@ -34,12 +37,23 @@ class CatalogAdminView(APIView):
     # Создание новой пиццы
     def post(self,request):
         try:
-            serializer = CatalogSerializer(data=request.POST)
+            name_pizza = request.POST.get('name_pizza')
+            ingredients = request.POST.get('ingredients')
+            price = request.POST.get('price')
+            price_disсont = request.POST.get('price_disсont')
+            if price_disсont == None or price_disсont ==  '':
+                price_disсont = 0.0
+            amount = request.POST.get('amount')
+            if amount == '' or amount == None:
+                amount = 0
+
+            data = {"name_pizza":name_pizza,"ingredients":ingredients,"price":price,"price_disсont":price_disсont,"amount":amount}
+            serializer = CatalogSerializer(data=data)
             serializer.is_valid(raise_exception=True)
        
         except Exception as exs:
             print ('Warming!!!', exs)  
-            template = loader.get_template("main/page_404.html")
+            template = loader.get_template("page_404_admin.html")
             return HttpResponse(template.render())
         
         else:

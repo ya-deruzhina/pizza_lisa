@@ -20,7 +20,7 @@ class OneOrdersUserView(APIView):
         else:        
             all_pizza = PizzaInOrder.objects.filter(order=order_id)
             one_pizza_in_order = {}
-            all_price = order.total_money
+            all_price = round(order.total_money,2)
             for m in range(0,(len(all_pizza))):
                 one_pizza_name = all_pizza [m].pizza
                 one_pizza_count = all_pizza[m].count

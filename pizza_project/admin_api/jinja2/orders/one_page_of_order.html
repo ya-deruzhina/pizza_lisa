@@ -25,7 +25,7 @@ Order User Information
     Comment - {{ user_order.comment }}    
 </p> 
 <p>
-    Time - {{ user_order.order_time}}
+    Time - {{user_order.order_time}}
 </p>
 <p>
     Address - {{ user_order.address}}
@@ -35,12 +35,14 @@ Order User Information
 <p>
     ORDER
 </p>
-{% for m in pizza %}
+{% for m in pizza_in_order %}
 <li> 
-    <p> {{m.pizza.name_pizza}} - {{m.pizza.ingredients}} - {{m.price_one}} BYN - count: {{m.count}} - Total: {{m.price_one * m.count}} BYN</p>
+    <p> {{pizza_in_order[m].order.pizza}} | {{(pizza_in_order[m].order.price_one|float|round(2))}} BYN | Count: {{pizza_in_order[m].order.count}} | Total: {{(pizza_in_order[m].price|float|round(2))}} BYN | <a href="/main/catalog/pizza/delete_from_order/{{pizza_in_order[m].order.id}}/"> *** Delete</a></p>
+    <p> Ingredients: {{pizza_in_order[m].order.pizza.ingredients}} </p><br>
 </li>
 
+
 {% endfor %} 
-***** Total Cost {{cost}}BYN
+***** Total Cost {{(cost|float|round(2))}} BYN
 <p> <a href="/main/user/{{user_order.user_id}}/"> Back </a><br> 
 {% endblock %}

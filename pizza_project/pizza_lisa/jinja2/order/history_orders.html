@@ -5,7 +5,7 @@
 <p> 
     {% for n in numbers_orders %}
     <li>
-        <p><a href="/pizza/lisa/order/{{ n }}/"> ***** Order - {{ n }} ,</a></p> 
+        <p><a href="/pizza/lisa/order/{{ n }}/"> ***** Order - {{ n }} </a></p> 
         <p> Date - {{ order[n].order_time }} </p>
         <p> Status - {{ order[n].status }} </p>
         <p> Order: {{order[n].all_price}} BYN</p>

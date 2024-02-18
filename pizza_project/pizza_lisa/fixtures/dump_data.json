@@ -4,7 +4,7 @@
     "pk": 1,
     "fields": {
         "password": "pbkdf2_sha256$720000$cvHZhqGyYoK6sXNaKBg0qS$liwc3rIznVgeEFhVNrK+0psWItxwkJVZE1NrlPPA2fU=",
-        "last_login": "2024-02-15T09:15:55.390Z",
+        "last_login": "2024-02-16T09:10:37.351Z",
         "is_superuser": true,
         "username": "admin",
         "last_name": "",
@@ -46,7 +46,7 @@
     "pk": 8,
     "fields": {
         "password": "pbkdf2_sha256$720000$M2kKqOQm0hefKJISmeF9vA$fuHMbZmt6lKf76SYub8jX9UGIZYQCoXD5iwyO8deUMA=",
-        "last_login": "2024-02-11T14:28:21.607Z",
+        "last_login": "2024-02-16T09:11:03.021Z",
         "is_superuser": false,
         "username": "user",
         "last_name": "",
@@ -67,7 +67,7 @@
     "pk": 9,
     "fields": {
         "password": "pbkdf2_sha256$720000$6Mxe7Ngx4yFcldXKxx09T4$EL0o7dtJSdNlheCEN2Tt50CPn3jEuwj74CzZfrxdvjs=",
-        "last_login": "2024-02-11T14:28:48.067Z",
+        "last_login": "2024-02-15T09:23:33.765Z",
         "is_superuser": false,
         "username": "marina",
         "last_name": "",
@@ -195,7 +195,8 @@
         "name_pizza": "New",
         "ingredients": "New",
         "price": 15.5,
-        "price_disсont": 10.0
+        "price_disсont": 10.0,
+        "amount": 30
     }
 },
 {
@@ -205,7 +206,8 @@
         "name_pizza": "Super New",
         "ingredients": "New",
         "price": 15.5,
-        "price_disсont": 0.0
+        "price_disсont": 0.0,
+        "amount": 0
     }
 },
 {
@@ -308,6 +310,17 @@
     }
 },
 {
+    "model": "pizza_lisa.messagesmodel",
+    "pk": 29,
+    "fields": {
+        "user_page": 9,
+        "author_message": "admin",
+        "message": "new",
+        "date_create": "2024-02-15T12:48:15.879Z",
+        "new": false
+    }
+},
+{
     "model": "pizza_lisa.ordermodel",
     "pk": 8,
     "fields": {
@@ -326,7 +339,7 @@
     "pk": 9,
     "fields": {
         "order_time": "2024-02-04T13:24:59.579Z",
-        "status": "NEW",
+        "status": "ARCHIVE",
         "user": 9,
         "name": "marina",
         "phone": 375291234569,
@@ -872,7 +885,7 @@
     "pk": 62,
     "fields": {
         "order_time": "2024-02-15T08:24:43.939Z",
-        "status": "NEW",
+        "status": "CANCELED",
         "user": 9,
         "name": "marina",
         "phone": 375298765321,
@@ -893,6 +906,20 @@
         "address": "Self-pickup",
         "comment": "Order without Comment",
         "total_money": 55.04
+    }
+},
+{
+    "model": "pizza_lisa.ordermodel",
+    "pk": 74,
+    "fields": {
+        "order_time": "2024-02-15T09:32:49.470Z",
+        "status": "NEW",
+        "user": 8,
+        "name": "user",
+        "phone": 375291112233,
+        "address": "Self-pickup",
+        "comment": "Order without Comment",
+        "total_money": 154.8
     }
 },
 {
@@ -1466,6 +1493,26 @@
     }
 },
 {
+    "model": "pizza_lisa.pizzainorder",
+    "pk": 77,
+    "fields": {
+        "order": 74,
+        "pizza": 2,
+        "count": 2,
+        "price_one": 12.4
+    }
+},
+{
+    "model": "pizza_lisa.pizzainorder",
+    "pk": 79,
+    "fields": {
+        "order": 74,
+        "pizza": 1,
+        "count": 5,
+        "price_one": 10.0
+    }
+},
+{
     "model": "pizza_lisa.reviewmodel",
     "pk": 1,
     "fields": {
@@ -1517,20 +1564,20 @@
 },
 {
     "model": "pizza_lisa.basketmodel",
-    "pk": 91,
+    "pk": 138,
     "fields": {
         "user": 8,
         "pizza": 1,
-        "count": 4
+        "count": 43
     }
 },
 {
     "model": "pizza_lisa.basketmodel",
-    "pk": 93,
+    "pk": 139,
     "fields": {
         "user": 8,
         "pizza": 2,
-        "count": 2
+        "count": 11
     }
 }
 ]

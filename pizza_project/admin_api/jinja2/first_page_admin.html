@@ -2,9 +2,12 @@
 
 {% block content %}
     <p> Hello, Dear Admin </p>
-    <p> <a href="/main/catalog/"> Catalog for Admin </a><br> 
-    <p> <a href="/main/user/all/"> All Users </a><br> 
-    Total sales {{price}} BYN </p>
+    | 
+    <a href="/main/catalog/"> Catalog for Admin </a> |
+    <a href="/main/user/all/"> All Users </a> |
+    <a href="/main/all_orders_in_work/"> All Orders In Work </a> |
+    <a href="/main/all_orders/"> All Orders</a> |<br>
+    <br>Total sales {{(price|float|round(2))}} BYN </p>
     <br>
         
     <p> New Orders </p>

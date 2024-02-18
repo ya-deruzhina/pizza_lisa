@@ -2,13 +2,13 @@
 
 {% block content %}
     <p> Catalog All For Admin </p>
-    Total Pizza - {{count_pizza}}</p>
+    Total Pizza - {{(count_pizza|float|round(2))}}</p>
     <br>
         
     <p> Pizza: </p>
     {% for s in catalog %}
         <li> 
-            <p> <a href="/main/catalog/{{ s.id }}/"> *** {{ s.name_pizza }},</a></p>
+            <p> <a href="/main/catalog/{{ s.id }}/"> *** {{ s.name_pizza }}</a></p>
         </li>
     {% endfor %} 
     <br>
@@ -21,4 +21,5 @@
 *****************************************************************************************************
     <br>
     <p> <a href="/main/"> Back </a><br> 
+
 {% endblock %}

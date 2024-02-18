@@ -35,8 +35,11 @@ class PizzaView(APIView):
             else:
                 price = pizza.price_disсont
                 discont = "Sale"
+        if pizza.amount == 0:
+            template = loader.get_template("catalog/pizza.html")
+        else:
+            template = loader.get_template("catalog/pizza_review.html")
         
-        template = loader.get_template("catalog/pizza_review.html")
         context = {
                 "pizza" : pizza,
                 "form":ReviewForm(),

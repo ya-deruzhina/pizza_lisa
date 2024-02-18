@@ -3,7 +3,7 @@
 {% block content %}
     {% for pizza_discont in catalog_discont %}
     <li> 
-        <p> <a href="/pizza/lisa/{{ pizza_discont.id }}/"> *** {{ pizza_discont.name_pizza }}</a> - % Sale % - Price With Discont {{ pizza_discont.price_disсont }} BYN </p> 
+        <p> <a href="/pizza/lisa/{{ pizza_discont.id }}/"> *** {{ pizza_discont.name_pizza }}</a> - % Sale % - Price With Discont {{ (pizza_discont.price_disсont|float|round(2)) }} BYN </p> 
             <form action="/pizza/lisa/basket/{{ pizza_discont.id }}/" method="post">
                 <button type="submit">Add to Basket</button> 
             </form>    
@@ -13,7 +13,7 @@
     {% endfor %} 
     {% for pizza in catalog %}
     <li> 
-        <p> <a href="/pizza/lisa/{{ pizza.id }}/"> *** {{ pizza.name_pizza }}  </a> - Price {{pizza.price}} BYN </p> 
+        <p> <a href="/pizza/lisa/{{ pizza.id }}/"> *** {{ pizza.name_pizza }}  </a> - Price {{(pizza.price|float|round(2))}} BYN </p> 
             <form action="/pizza/lisa/basket/{{ pizza.id }}/" method="post">
                 <button type="submit">Add to Basket</button> 
             </form>  

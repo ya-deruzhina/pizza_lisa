@@ -7,6 +7,9 @@ from admin_api.tests.delete_user_test import UserAdminDeleteTestCase
 from admin_api.tests.first_admin_page_test import MainPageAdminAfterAuthTestCase
 from admin_api.tests.message_admin_test import MessageAdminViewTestCase,MessageAdminCreateTestCase,MessageAdminDeleteTestCase,MessageAdminReadTestCase
 from admin_api.tests.one_page_of_order_test import OneOrderViewTestCase,OneOrderPostTestCase
+from admin_api.tests.all_orders_view import AllOrdersInWorkTestCase,AllOrdersViewTestCase
+from admin_api.tests.pizza_in_order_and_basket import PizzaInOrderAndBasketViewTestCase,DeletePizzaFromBasketViewTestCase
+from admin_api.tests.delete_pizza_from_order import DeletePizzaFromOrderViewTestCase
 
 
 
@@ -31,5 +34,10 @@ all =(
     "AdminAboutUserViewTestCase",
     "ChangeDiscontTestCase",
     "AboutAllUersPageViewViewTestCase",
+    "AllOrdersInWorkTestCase",
+    "AllOrdersViewTestCase",
+    "PizzaInOrderAndBasketViewTestCase",
+    "DeletePizzaFromBasketViewTestCase",
+    "DeletePizzaFromOrderViewTestCase",
 )
 

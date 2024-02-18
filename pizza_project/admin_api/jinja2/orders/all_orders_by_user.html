@@ -10,7 +10,7 @@
 </p>
 {% for m in user_orders %}
 <li> 
-    <p> <a href="/main/user/orders/{{ m.id }}/"> *** {{ m.id }},</a> Comment: {{m.comment}}, Address: {{m.address}}, Status: {{m.status}} </p>
+    <p> <a href="/main/user/orders/{{ m.id }}/"> Order {{ m.id }},</a> | Comment: {{m.comment}}| Address: {{m.address}} | Status: {{m.status}} | Total Money {{(m.total_money|float|round(2))}} </p>
 </li>
 
 {% endfor %} 

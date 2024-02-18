@@ -11,7 +11,7 @@ class CatalogDiscontView(APIView):
     permission_classes = [IsAuthenticated]
     def get(self,request):
         # __gt значит больше
-        catalog = CatalogModel.objects.filter(price_disсont__gt=0)
+        catalog = CatalogModel.objects.filter(price_disсont__gt=0).filter(amount__gt=0).order_by('name_pizza')
         template = loader.get_template("catalog/catalog_discont.html")
         context = {
             "catalog":catalog,
