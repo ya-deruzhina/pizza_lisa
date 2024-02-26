@@ -46,16 +46,11 @@ class PizzaOneView(APIView):
             data = request.POST
             instance = CatalogModel.objects.get(pk=_id)
             if request.POST['amount'] != '':
-                basket = BasketModel.objects.filter(pizza_id=_id)
-                amount_in_basket = 0
-
-                for b in range(0,len(basket)):
-                    amount_in_basket += basket[b].count
-                
-                if int(request.POST['amount']) < amount_in_basket:
-                    print ('Warming!!! Amount In Basket Is More!')   
+                if int(request.POST['amount']) < 0:
+                    print ('Warming!!! Amount Should Be More 0!')   
                     template = loader.get_template("page_404_admin.html")
                     return HttpResponse(template.render())
+
             serializer = UpdateCatalogSerializer (data=data,instance=instance)
             serializer.is_valid(raise_exception=True)
 

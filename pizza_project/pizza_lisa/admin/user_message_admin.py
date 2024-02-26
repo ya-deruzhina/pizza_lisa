@@ -10,8 +10,3 @@ class MessageInline(admin.TabularInline):
 class UserAdmin (admin.ModelAdmin):
     fields = ["username","phone_number","first_name","password"]
     inlines = [MessageInline]
-
-    def new_message (self,obj:User):
-        message = MessagesModel.objects.filter(user_page_id=obj.id)
-        mes = message.filter(new=True)
-        return len(mes)

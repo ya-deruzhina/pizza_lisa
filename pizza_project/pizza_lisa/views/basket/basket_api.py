@@ -156,7 +156,7 @@ class BasketAdd(APIView):
         
         else:
             basket.count +=1
-            basket.save()
+
 
         try:
             catalog_amount = CatalogModel.objects.get(id=basket.pizza_id)
@@ -171,6 +171,8 @@ class BasketAdd(APIView):
                 print ('Warming!!!', exs)   
                 template = loader.get_template("main/page_404.html")
                 return HttpResponse(template.render())
+        
+        basket.save()
 
         return HttpResponseRedirect ("/pizza/lisa/basket/")
     

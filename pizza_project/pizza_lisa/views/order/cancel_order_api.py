@@ -27,4 +27,4 @@ class CancelOrderView(APIView):
                 template = loader.get_template("main/page_404.html")
                 return HttpResponse(template.render()) 
 
-            return HttpResponseRedirect ("/pizza/lisa/")
+            return HttpResponseRedirect (f"/pizza/lisa/order/{order_id}/")

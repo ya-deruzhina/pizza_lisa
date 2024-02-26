@@ -18,6 +18,9 @@ class UserDeleteView (APIView):
             message_of_user.delete()
 
             order_of_user = OrderModel.objects.filter(user=request.user.id)
+            if len(order_of_user.exclude(status = "NEW").exclude(status="CANCELED").exclude(status ="ARCHIVE"))>0:
+                return HttpResponseRedirect ("/pizza/lisa/user_orders/")
+    
             if len (order_of_user) > 0:
                 number_of_order = []
 
