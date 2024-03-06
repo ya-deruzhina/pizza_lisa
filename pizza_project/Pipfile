@@ -1,0 +1,26 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django="*"
+django-core="*"
+jinja2="*"
+ipython="*"
+djangorestframework="*"
+djangorestframework-simplejwt="*"
+python-dotenv="*"
+redis="*"
+celery="==5.2.3"
+entrypoints = "*"
+importlib-metadata = "==4.13.0"
+drf-spectacular="*"
+flask ="*"
+psycopg2-binary ="*"
+requests ="*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.10"

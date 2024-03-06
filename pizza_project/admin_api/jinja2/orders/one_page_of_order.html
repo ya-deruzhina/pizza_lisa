@@ -1,0 +1,48 @@
+{% extends 'main_admin.html' %}
+
+{% block content %}
+<p> About ORDER User - {{user_order.user.first_name}} "{{user_order.user.username}}" </p>
+*****************************************************************************************************
+<br>
+Order User Information
+<li> <p>
+    Number - {{ user_order.id }}
+</p>
+<p> Status - {{ user_order.status}}
+    <form action="/main/user/orders/{{ user_order.id}}/" method="post">
+        {{ form }}
+        <button type="submit">Change</button>
+    </form> 
+
+</p>
+<p>    
+    Name - {{ user_order.name }}    
+</p>
+<p>    
+    Phone_number - {{ user_order.phone }}    
+</p> 
+<p>    
+    Comment - {{ user_order.comment }}    
+</p> 
+<p>
+    Time - {{user_order.order_time}}
+</p>
+<p>
+    Address - {{ user_order.address}}
+</p>
+*****************************************************************************************************
+<br>
+<p>
+    ORDER
+</p>
+{% for m in pizza_in_order %}
+<li> 
+    <p> {{pizza_in_order[m].order.pizza}} | {{(pizza_in_order[m].order.price_one|float|round(2))}} BYN | Count: {{pizza_in_order[m].order.count}} | Total: {{(pizza_in_order[m].price|float|round(2))}} BYN | <a href="/main/catalog/pizza/delete_from_order/{{pizza_in_order[m].order.id}}/"> *** Delete</a></p>
+    <p> Ingredients: {{pizza_in_order[m].order.pizza.ingredients}} </p><br>
+</li>
+
+
+{% endfor %} 
+***** Total Cost {{(cost|float|round(2))}} BYN
+<p> <a href="/main/user/{{user_order.user_id}}/"> Back </a><br> 
+{% endblock %}

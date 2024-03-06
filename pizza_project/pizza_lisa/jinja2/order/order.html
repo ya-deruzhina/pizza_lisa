@@ -1,0 +1,37 @@
+{% extends 'main/main_after_auth.html' %}
+
+{% block content %}
+
+<p>    
+    Dear : {{ user }}    
+</p> 
+
+<p> 
+    Your order number {{order_pizza.id}}<br>
+    Total Cost {{(price|float|round(2))}}
+    {% for p in pizza %}
+    <li> Name pizza : {{p.pizza}} --- Count : {{p.count}} --- Price: {{((p.count * p.price_one)|float|round(2))}}
+    </li>
+    {% endfor %} 
+</p> 
+<p>    
+    About Client    
+</p> 
+<p>    
+    User : {{ user }}    
+</p> 
+<p>    
+    Phone : {{ order_pizza.phone }}    
+</p> 
+<p>    
+    Address : {{ order_pizza.address }}    
+</p>
+<p>    
+    Comment : {{ order_pizza.comment }}    
+</p> 
+<br>
+    <form action="/pizza/lisa/catalog/" method="get">
+        <button type="submit">Catalog</button>
+    </form> 
+    <br>
+{% endblock %}

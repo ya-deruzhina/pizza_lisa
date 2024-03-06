@@ -1,0 +1,30 @@
+{% extends 'main/main_after_auth.html' %}
+
+{% block content %}
+
+    <li>
+        <p>***** Order - {{ pizza.id }} </a></p> 
+        <p> Date - {{ pizza.order_time }} </p>
+        <p> Comment - {{ pizza.comment }} </p>
+        <p> Status - {{ pizza.status }} </p>
+        <p> Name - {{ pizza.name }} </p>
+        <p> Phone - {{ pizza.phone }} </p>
+        <p> Address - {{ pizza.address }} </p>
+        <p> Total: {{(pizza.all_price|float|round(2))}} BYN </p>
+        {% for m in count_pizza %}
+        <li>
+            {{ pizza.one_pizza_in_order[m]['pizza'] }} --- Count {{ pizza.one_pizza_in_order[m]['count'] }}
+        </li>
+        {% endfor %}    
+    </li>
+    <br>
+    <form action="/pizza/lisa/order/cancel/{{ pizza.id }}/" method="get">
+        <button type="submit">Cancel</button>
+    </form> 
+    <br>
+    <form action="/pizza/lisa/user_orders/" method="get">
+        <button type="submit">History Of Orders</button>
+    </form>
+    <br>
+{% endblock %}
+

@@ -1,0 +1,42 @@
+{% extends 'main_admin.html' %}
+
+{% block content %}
+<p> About User - {{user.first_name}} "{{user.username}}" </p>
+
+<p> New Messages {{count_new_message}} <a href="/main/user/message/{{ user.id }}/"> Messeger </a><br></p>  
+<p> New Orders {{count_new_orders}} <a href="/main/user/all_orders/{{user.id}}/"> All Orders In Work </a> *** <a href="/main/user/all_orders_archive/{{user.id}}/"> Archive Orders </a> <br> </p>
+<p> Total sales {{(user.total_shopping|float|round(2))}} BYN <br></p>
+*****************************************************************************************************
+<br>
+User Information
+<li> <p>
+    Username - {{ user.username }}
+</p>
+<p> Name - {{ user.first_name}}
+</p>
+<p>    
+    Phone_number - {{ user.phone_number }}    
+</p> 
+<p>
+    Discont - {{ user.discont}} %   
+        <form action="/main/user/{{ user.id }}/" method="post"> {{ form }} 
+            <button type="submit">Change</button>
+        </form>  
+</p>
+<p>
+    <a href="/main/user/delete/{{ user.id }}/"> Delete {{user.first_name}} </a>
+</p>
+*****************************************************************************************************
+<br>
+<p>
+    NEW ORDERS
+</p>
+{% for m in new_orders %}
+<li> 
+    <p> <a href="/main/user/orders/{{ m.id }}/"> *** {{ m.id }},</a> Comment: {{m.comment}}, Address: {{m.address}} </p>
+</li>
+
+{% endfor %} 
+
+<p> <a href="/main/user/all/"> Back </a><br>
+{% endblock %}

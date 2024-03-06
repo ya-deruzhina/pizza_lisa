@@ -1,0 +1,17 @@
+{% extends 'main/main_before_auth.html' %}
+
+{% block content %}
+<p> HELLO </p>
+<p> We want to propose you to chose the most delicious pizza</p>
+<p> </p>
+<p> Before of all you should to sign in or registration</p>
+
+<form action="/pizza/sign_in/login/" method="get">
+    <button type="submit">Sing in</button>
+</form> 
+<p> </p>
+<form action="registrate/form/" method="get">
+    <button type="submit">Registrate</button>
+</form> 
+<p> </p>
+{% endblock %}

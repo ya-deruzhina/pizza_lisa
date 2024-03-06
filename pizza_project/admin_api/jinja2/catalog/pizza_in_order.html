@@ -1,0 +1,26 @@
+{% extends 'main_admin.html' %}
+
+{% block content %}
+    <p> Pizza {{name_pizza}} In Baskets and Orders </p>
+    <br>
+*****************************************************************************************************<br>        
+    <p> Warning!!!!! No!!! Pizza in Basket </p>
+    {% for s in pizza_in_basket %}
+        <li>
+            <p>{{s.user.username}} - {{s.count}} - <a href="/main/catalog/pizza/delete_from_basket/{{ s.id }}/"> *** Delete</a></p>
+        </li>
+    {% endfor %} 
+    <br>
+*****************************************************************************************************<br>
+    <p> Warning!!!!! No!!! Pizza in Orders </p>
+    {% for m in pizza_in_working_orders %}
+    <li>
+        <p> Order {{pizza_in_working_orders[m][0].order.id}} - {{m}} - <a href="/main/user/orders/{{pizza_in_working_orders[m][0].order.id}}/"> *** To Order</a></p>
+    </li>
+    {% endfor %} 
+    <br>
+*****************************************************************************************************
+    <br>
+    <p> <a href="/main/catalog/{{pizza_id}}"> Back </a><br> 
+
+{% endblock %}
