@@ -1,0 +1,40 @@
+{% extends 'main/main_after_auth.html' %}
+
+{% block content %}
+Pizza Information
+
+<li> <p>
+    Name - {{ pizza.name_pizza }}
+</p>
+<p>    
+    Price - {{ (price|float|round(2)) }}    
+</p> 
+<p>    
+    Discont - {{ (discont) }}    
+</p> 
+<p>
+    Ingredients - {{ pizza.ingredients }}
+</p>
+
+<form action="/pizza/lisa/basket/{{ pizza.id }}/" method="post">
+    <button type="submit">Add to Basket</button>
+</form> 
+
+<p> Reviews</p>
+<p> 
+{% for m in reviews %}
+        <li>
+            {{ m.user }} --- {{ m.review}}
+        </li>
+{% endfor %}  
+</p>
+
+<form action="/pizza/lisa/{{ pizza.id }}/" method="post">
+    {{ form }}
+    <button type="submit">Sent Review</button>
+</form> 
+<form action="/pizza/lisa/catalog/" method="get">
+    <button type="submit">Back to Catalog</button>
+</form> 
+
+{% endblock %}

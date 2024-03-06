@@ -1,0 +1,35 @@
+{% extends 'main_admin.html' %}
+
+{% block content %}
+<p> About Pizza - {{catalog.name_pizza}} </p>
+<p>
+    <a href="/main/catalog/pizza/{{ catalog.id }}/"> Can I Delete This Pizza? </a>
+</p>
+*****************************************************************************************************
+<br>
+<li> <p>
+    Ingredients - {{ catalog.ingredients }}
+</p>
+<p> Price - {{ (catalog.price|float|round(2))}}
+</p>
+<p>    
+    Price Discont - {{ (catalog.price_disсont|float|round(2)) }}     
+</p>
+<p>    
+    Amount - {{ catalog.amount }}     
+</p>
+*****************************************************************************************************
+<br> 
+<p>
+    Form For Change 
+        <form action="/main/catalog/{{ catalog.id }}/" method="post"> {{ form }} 
+            <button type="submit">Change</button>
+        </form>  
+</p>
+*****************************************************************************************************
+<p>
+    <a href="/main/catalog/delete/{{ catalog.id }}/"> Delete </a>
+</p>
+
+<p> <a href="/main/catalog/"> Back </a><br>
+{% endblock %}

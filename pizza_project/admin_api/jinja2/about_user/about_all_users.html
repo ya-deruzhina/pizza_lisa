@@ -1,0 +1,16 @@
+{% extends 'main_admin.html' %}
+
+{% block content %}
+<p> Page About All Users </p>
+Total sales {{(price|float|round(2))}} BYN </p>
+
+<br>
+{% for m in users %}
+<li> 
+    <p> <a href="/main/user/{{ m.id }}/"> *** {{ m.username }},</a> New Messages {{about_user[m].new_message}} -- New Orders {{about_user[m].new_orders}}  </p>
+</li>
+
+{% endfor %} 
+<p> <a href="/main/"> Back </a><br> 
+{% endblock %}
+

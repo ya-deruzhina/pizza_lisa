@@ -1,0 +1,25 @@
+{% extends 'main_admin.html' %}
+
+{% block content %}
+    <p> Catalog All For Admin </p>
+    Total Pizza - {{(count_pizza)}}</p>
+    <br>
+        
+    <p> Pizza: </p>
+    {% for s in catalog %}
+        <li> 
+            <p> <a href="/main/catalog/{{ s.id }}/"> *** {{ s.name_pizza }}</a></p>
+        </li>
+    {% endfor %} 
+    <br>
+*****************************************************************************************************<br>
+        Create New Pizza
+    <form action="/main/catalog/" method="post">
+        {{ form }}
+        <button type="submit">Create</button>
+    </form> 
+*****************************************************************************************************
+    <br>
+    <p> <a href="/main/"> Back </a><br> 
+
+{% endblock %}

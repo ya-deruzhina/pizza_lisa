@@ -1,0 +1,17 @@
+{% extends 'main_admin.html' %}
+
+{% block content %}
+
+    {% for pizza in catalog %}
+    <li> 
+        <p> <a href="/pizza/lisa/{{ pizza.id }}/"> *** {{ pizza.name_pizza }}  </a> - Price {{(pizza.price|float|round(2))}} BYN </p> 
+            <form action="/pizza/lisa/basket/{{ pizza.id }}/" method="post">
+                <button type="submit">Add to Basket</button> 
+            </form>  
+            <br>     
+        </p>
+        </li>
+    {% endfor %}
+
+
+{% endblock %}

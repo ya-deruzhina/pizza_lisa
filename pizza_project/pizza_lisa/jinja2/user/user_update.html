@@ -1,0 +1,8 @@
+{% extends 'main/main_after_auth.html' %}
+
+{% block content %}
+    <form action="/pizza/lisa/user_update/" method="post">
+        {{ form }}
+        <button type="submit">Update</button>
+    </form> 
+{% endblock %}

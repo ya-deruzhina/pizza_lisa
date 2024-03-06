@@ -1,0 +1,15 @@
+{% extends 'main/main_after_auth.html' %}
+
+{% block content %}
+    {% for m in messages %}
+    <li> {{m.author_message}}
+        {{m.message}} 
+    </li>
+    {% endfor %} 
+    
+    <form action="/pizza/lisa/message/" method="post">
+        {{ form }}
+        <button type="submit">Sent</button>
+    </form> 
+
+{% endblock %}
